@@ -195,6 +195,11 @@ getBalance (Customer _ _ b) = b
 hungaiBalance = print(getBalance hungai)
 
 
+-- The . operator allows you to chain functions to pass output on the right
+--sumValue = putStrLn(show(1+2)) becomes 
+
+sumValue = putStrLn . show $ 1 + 2 
+
 
 
 

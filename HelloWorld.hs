@@ -63,9 +63,6 @@ namesAndAddresses = zip names addresses
 
 
 
-
-
-
 getListItems ::[Int] -> String 
 getListItems [] = "Your List is empty"
 getListItems (x:[]) = "Your List starts with " ++ " " ++ show x 
@@ -140,28 +137,32 @@ batAvgRating hits atBats
     | otherwise = "You are a superstar"
     where avg = hits / atBats
 
-
+--Fib Sequence 1 
 fib = 1 : 1 : [a + b | (a,b) <- zip fib (tail fib)]
 
 
-
---Solution 1 
-factorsOf3and5 = sum [x | x <-[1..999], x `mod` 3 == 0 || x `mod` 5 == 0]
-
-
+--Fib Sequence 2 using pattern matching 
 fib2 0 =0
 fib2 1 = 1 
 fib2 n = fib2(n-1) + fib2(n-2)
 
 
+--Fib Sequence 3 
 fibs = 0:1:zipWith(+) fibs(tail fibs)
+
+
+--Project Euler Solutions 
+
+--Solution 1 
+factorsOf3and5 = sum [x | x <-[1..999], x `mod` 3 == 0 || x `mod` 5 == 0]
+
 
 
 --solution 3 
 solution = sum $ filter even $ takeWhile(<= 4000000) fib where fib = 1:2:zipWith(+)fibs(tail fibs)
 
 
---SOlution 4
+--Solution 4
 palindrome = sort [ x*y | x <- [100..999], y <- [100..999], reverse (show (x*y)) == show (x*y)]
 
 --Solution 5 
@@ -174,7 +175,25 @@ y = sum ( map(^2) [1..100])
 
 sumSquareDifference = x - y 
 
---Solution 7 
+
+
+--CUSTOM TYPES -- 
+
+data Customer = Customer String String Double 
+            deriving Show 
+
+--Define Customer and its values 
+
+hungai :: Customer
+hungai = Customer "Hungai Kevin" "123 Main" 20.50
+
+-- Define how we will find the right customer 
+
+getBalance :: Customer -> Double
+getBalance (Customer _ _ b) = b 
+
+hungaiBalance = print(getBalance hungai)
+
 
 
 

@@ -1,4 +1,5 @@
 import Data.List 
+import Data.Maybe
 
 hypotenuse a b = sqrt(a^2 + b^2)
 
@@ -120,10 +121,20 @@ clientName client = case client of
 
 companyName :: Client -> Maybe String
 companyName client = case client of 
-    Company name _ _ _ -> name
+    Company name _ _ _ -> Just name
     _  -> Nothing 
 
 
+
+fibonnaci :: Integer -> Integer
+fibonnaci n = case n of 
+    0 -> 0
+    1 -> 1 
+    _ -> fibonnaci (n-1) + fibonnaci (n-2)
+
+sorted [] = True 
+sorted [_] = True 
+sorted (x:r@(y:_)) = x < y && sorted r 
 
 
 --Card ADT's 

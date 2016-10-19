@@ -47,6 +47,14 @@ maxmin2 list = let h = head list
                                  t_min = snd t 
 
 
+--Using Pattern matching 
+maxmin3 [x] = (x,x)
+maxmin3 (x:xs) = (if x > xs_max then x else xs_max, 
+    if x < xs_min then x else xs_min) 
+    where (xs_max,xs_min) = maxmin3 xs
+
+
+
 
 
 

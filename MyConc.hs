@@ -21,3 +21,14 @@ lst1 +++ lst2 = if null lst1 {- check emptyness -}
 reverse2 list = if null list
     then []
     else reverse2 (tail list) +++ [head list]
+
+
+maxmin list = if null (tail list)
+    then (head list, head list)
+    else (if (head list) > fst(maxmin (tail list))
+          then head list 
+          else fst (maxmin (tail list))
+         ,if (head list) < snd (maxmin (tail list))
+          then head list 
+          else snd(maxmin(tail list))
+         )

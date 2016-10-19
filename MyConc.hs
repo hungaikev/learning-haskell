@@ -23,6 +23,7 @@ reverse2 list = if null list
     else reverse2 (tail list) +++ [head list]
 
 
+{- Getting the largest and smallest number from a list -}
 maxmin list = if null (tail list)
     then (head list, head list)
     else (if (head list) > fst(maxmin (tail list))
@@ -32,3 +33,39 @@ maxmin list = if null (tail list)
           then head list 
           else snd(maxmin(tail list))
          )
+
+
+maxmin2 list = let h = head list
+                in if null (tail list)
+                    then (h,h)
+                    else (if h > t_max then h else t_max
+                          ,if h < t_min then h else t_min )
+                           where t = maxmin2 (tail list)
+                                 t_max = fst t 
+                                 t_min = snd t 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

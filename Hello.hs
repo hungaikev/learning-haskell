@@ -95,7 +95,7 @@ data Client = GovOrg String
             deriving Show 
      
 
-data Person = Person String String
+data Person = Person String String Gender
             deriving Show 
 
 
@@ -106,6 +106,23 @@ data Users = Organization String Integer Person String
 
 data Gender = Male | Female | Unknown
             deriving Show 
+
+
+
+
+clientName :: Client -> String
+clientName client = case client of 
+                       GovOrg name  -> name 
+                       Company name _ _ _ -> name 
+                       Individual person ads -> 
+                            case person of Person fName lName gender -> fName ++ " " ++ lName
+
+
+companyName :: Client -> Maybe String
+companyName client = case client of 
+    Company name _ _ _ -> name
+    _  -> Nothing 
+
 
 
 

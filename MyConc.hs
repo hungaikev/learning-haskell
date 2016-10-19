@@ -35,6 +35,8 @@ maxmin list = if null (tail list)
          )
 
 
+
+-- Using Local Bindings "let", "in","where"
 maxmin2 list = let h = head list
                 in if null (tail list)
                     then (h,h)

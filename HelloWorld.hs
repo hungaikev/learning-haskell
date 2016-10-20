@@ -119,7 +119,7 @@ factorial n = n * factorial(n-1)
 
 
 
---Using Guards 
+--Using Guards 1
 whatGrade :: Int -> String 
 whatGrade age 
     |(age >= 5) && (age <= 6) = "Kindergaten"
@@ -127,7 +127,7 @@ whatGrade age
     | otherwise = "Go to college"
 
 
---Using Guards 
+--Using Guards 2
 
 batAvgRating :: Double -> Double -> String
 batAvgRating hits atBats
@@ -136,6 +136,11 @@ batAvgRating hits atBats
     | avg <= 0.280 = "You are doing good"
     | otherwise = "You are a superstar"
     where avg = hits / atBats
+
+
+--Using Guards 3
+
+
 
 --Fib Sequence 1 
 fib = 1 : 1 : [a + b | (a,b) <- zip fib (tail fib)]

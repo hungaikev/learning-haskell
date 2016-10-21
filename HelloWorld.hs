@@ -139,7 +139,15 @@ batAvgRating hits atBats
 
 
 --Using Guards 3
+ifibonnaci n | n < 0 = Nothing 
+ifibonnaci 0 = Just 0 
+ifibonnaci 1 = Just 1
+ifibonnaci n | otherwise = let (Just f1,Just f2) = (ifibonnaci(n-1),ifibonnaci(n-2))
+                           in Just (f1 + f2)
 
+binom _ 0 = 1 
+binom x y | x == y = 1 
+binom n k = (binom(n-1)(k-1))+(binom(n-1)k) 
 
 
 --Fib Sequence 1 

@@ -119,6 +119,7 @@ data ClientR = GovOrgR {clientRName :: String}
             deriving Show
 
 hungai = IndividualR {person = PersonR{lastName = "Hungai", firstName="Kevin"}}
+kevin  = PersonR{firstName = "Hungai", lastName="Kevin"}
 
 
 --Functions using pattern matching 
@@ -141,6 +142,11 @@ greet2 GovOrgR { } = "Welcome"
 greet3 IndividualR {person=PersonR{..}} = "Hi," ++ " " ++ firstName
 greet3 CompanyR {..} = "Hello," ++ " " ++ clientRName
 greet3 GovOrgR { } = "Welcome"
+
+
+{-nameInCapitals :: PersonR -> PersonR
+nameInCapitals p@(PersonR{firstName = initial : rest}) = let newName = (toUpper initial):rest in p {firstName = newName}
+nameInCapitals p@(PersonR{firstName = " "}) = p -}
 
 
 clientName :: Client -> String

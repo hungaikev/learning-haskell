@@ -1,3 +1,4 @@
+{-# LANGUAGE NamedFieldPuns #-}
 import Data.List 
 import Data.Maybe
 
@@ -118,12 +119,18 @@ data ClientR = GovOrgR {clientRName :: String}
 
 hungai = IndividualR {person = PersonR{lastName = "Hungai", firstName="Kevin"}}
 
+
+--Functions using pattern matching 
 greet :: ClientR -> String
 greet IndividualR {person = PersonR{ firstName = fn }} = "Hi," ++ " " ++ fn 
-greet CompanyR {clientRName = c } = "Hello," ++ " " ++ c 
+greet CompanyR { clientRName = c } = "Hello," ++ " " ++ c 
 greet GovOrgR { } = "Welcome"
 
+--Using record puns 
 
+greet2 IndividualR {person = PersonR {firstName}} = "Hi, " ++ " " ++ firstName
+greet2 CompanyR { clientRName } = "Hello," ++ " " ++ clientRName
+greet2 GovOrgR { } = "Welcome"
 
 clientName :: Client -> String
 clientName client = case client of 

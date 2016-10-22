@@ -1,4 +1,5 @@
 {-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE RecordWildCards #-}
 import Data.List 
 import Data.Maybe
 
@@ -126,11 +127,21 @@ greet IndividualR {person = PersonR{ firstName = fn }} = "Hi," ++ " " ++ fn
 greet CompanyR { clientRName = c } = "Hello," ++ " " ++ c 
 greet GovOrgR { } = "Welcome"
 
---Using record puns 
+{- Using named record puns -> # LANGUAGE NamedFieldPuns # -}
+
+
 
 greet2 IndividualR {person = PersonR {firstName}} = "Hi, " ++ " " ++ firstName
 greet2 CompanyR { clientRName } = "Hello," ++ " " ++ clientRName
 greet2 GovOrgR { } = "Welcome"
+
+{- Using named record puns with Record Wild Cards  -> # LANGUAGE RecordWildCards # -}
+
+
+greet3 IndividualR {person=PersonR{..}} = "Hi," ++ " " ++ firstName
+greet3 CompanyR {..} = "Hello," ++ " " ++ clientRName
+greet3 GovOrgR { } = "Welcome"
+
 
 clientName :: Client -> String
 clientName client = case client of 

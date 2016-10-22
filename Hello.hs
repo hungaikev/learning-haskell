@@ -2,6 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 import Data.List 
 import Data.Maybe
+import Data.Char
 
 hypotenuse a b = sqrt(a^2 + b^2)
 
@@ -144,9 +145,9 @@ greet3 CompanyR {..} = "Hello," ++ " " ++ clientRName
 greet3 GovOrgR { } = "Welcome"
 
 
-{-nameInCapitals :: PersonR -> PersonR
-nameInCapitals p@(PersonR{firstName = initial : rest}) = let newName = (toUpper initial):rest in p {firstName = newName}
-nameInCapitals p@(PersonR{firstName = " "}) = p -}
+nameInCapitals :: PersonR -> PersonR
+nameInCapitals p@(PersonR{firstName = initial:rest}) = let newName = (toUpper initial):rest in p {firstName = newName}
+nameInCapitals p@(PersonR{firstName = " "}) = p 
 
 
 clientName :: Client -> String

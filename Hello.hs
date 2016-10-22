@@ -108,6 +108,20 @@ data Users = Organization String Integer Person String
 data Gender = Male | Female | Unknown
             deriving Show 
 
+{-Using Records to define Data types-}
+
+data PersonR = PersonR {firstName :: String, lastName :: String} deriving Show 
+data ClientR = GovOrgR {clientRName :: String}
+            | CompanyR {clientRName ::String, companyId :: Integer, person :: PersonR, duty :: String}
+            | IndividualR {person ::PersonR }
+            deriving Show
+
+hungai = IndividualR {person = PersonR{lastName = "Hungai", firstName="Kevin"}}
+
+greet :: ClientR -> String
+greet IndividualR {person = PersonR{ firstName = fn }} = "Hi," ++ " " ++ fn 
+greet CompanyR {clientRName = c } = "Hello," ++ " " ++ c 
+greet GovOrgR { } = "Welcome"
 
 
 

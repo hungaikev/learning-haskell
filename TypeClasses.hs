@@ -41,3 +41,37 @@ smallAvail = S `elem` [S, M, L]
  
 -- Get string value for ShirtSize
 theSize = show S
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

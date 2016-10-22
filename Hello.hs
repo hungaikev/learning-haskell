@@ -114,6 +114,7 @@ data Gender = Male | Female | Unknown
 {-Using Records to define Data types-}
 
 data PersonR = PersonR {firstName :: String, lastName :: String} deriving Show 
+
 data ClientR = GovOrgR {clientRName :: String}
             | CompanyR {clientRName ::String, companyId :: Integer, person :: PersonR, duty :: String}
             | IndividualR {person ::PersonR }
@@ -196,6 +197,22 @@ type Hand = Card
 allPairs f [] = True
 allPairs f [x] = True
 allPairs f (x:y:ys) = f x y && allPairs f (y:ys)
+
+
+
+data ConnType = TCP | UDP 
+data UseProxy = NoProxy | Proxy String
+data TimeOut = NoTimeOut | TimeOut Integer
+
+data ConnOptions = ConnOptions {
+    connType :: ConnType 
+    ,connSpeed :: Integer
+    ,connProxy :: UseProxy
+    ,connCaching :: Bool 
+    ,connKeepAlive :: Bool
+    ,connTimeOut :: TimeOut
+
+}
 
 
 

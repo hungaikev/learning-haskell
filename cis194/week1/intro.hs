@@ -59,6 +59,48 @@ f x y z = x + y + z
 ex17 = f 3 17 8 
 
 
+ex18 = 1:[]
+ex19 = 3 : (1:[])
+ex20 = 2 : 3 : 4 : []
+ex21 = [2,3,4] == 2 : 3 : 4 : []
+
+
+hailstoneSeq :: Int -> [Int]
+hailstoneSeq 1 = [1]
+hailstoneSeq n = n : hailstoneSeq(hailstone n)
+
+
+intListLength :: [Int] -> Int 
+intListLength [] = 0 
+intListLength (x:xs) = 1 + intListLength xs
+
+
+--Takes an type of list and returns the length
+intListLength2 [] = 0 
+intListLength2 (x:xs) = 1 + intListLength2 xs
+
+
+sumEveryTwo :: [Int] -> [Int]
+sumEveryTwo [] = []
+sumEveryTwo (x:[]) = [x]
+sumEveryTwo (x:(y:zs)) = (x+y) : sumEveryTwo zs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

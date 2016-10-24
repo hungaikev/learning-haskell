@@ -87,6 +87,12 @@ sumEveryTwo (x:(y:zs)) = (x+y) : sumEveryTwo zs
 
 
 
+-- The number of hailstone steps needed to reach 1 from a starting
+-- number.
+hailstoneLen :: Int -> Int
+hailstoneLen n = intListLength (hailstoneSeq n) - 1
+
+
 
 
 

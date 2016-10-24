@@ -146,9 +146,9 @@ greet3 CompanyR {..} = "Hello," ++ " " ++ clientRName
 greet3 GovOrgR { } = "Welcome"
 
 
-nameInCapitals :: PersonR -> PersonR
+{-nameInCapitals :: PersonR -> PersonR
 nameInCapitals p@(PersonR{firstName = initial:rest}) = let newName = (toUpper initial):rest in p {firstName = newName}
-nameInCapitals p@(PersonR{firstName = " "}) = p 
+nameInCapitals p@(PersonR{firstName = " "}) = p -}
 
 
 clientName :: Client -> String
@@ -213,6 +213,8 @@ data ConnOptions = ConnOptions {
     ,connTimeOut :: TimeOut
 
 }
+
+
 
 
 

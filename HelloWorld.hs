@@ -218,6 +218,18 @@ sumSquareDifference = x - y
 data Customer = Customer String String Double 
             deriving Show 
 
+
+data Customer2 = Customer2 {
+    name :: String,
+    address :: String,
+    payment :: Double
+} deriving Show 
+
+
+hungai2 :: Customer2
+hungai2 = Customer2 {name = "Hungai Kevin",address="12 Main",payment=20.50}
+
+
 --Define Customer and its values 
 
 hungai :: Customer

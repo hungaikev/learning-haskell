@@ -35,3 +35,46 @@ keepOnlyEven (Cons x xs)
     | otherwise = keepOnlyEven xs
 
 
+-- Polymorphic data types 
+
+data MyList t = E  -- t is a type variable it represents any type
+              | C t (MyList t)
+    deriving (Show,Eq)
+{- Type variable must start with a lowercase letter, 
+wheas Types must start with a capital letter 
+data MyList t .. means MyList type is parameterized by a type t
+-}
+
+lst1 :: MyList Int 
+lst1 = C 3 (C 5 (C 2 E))
+
+lst2 :: MyList Char 
+lst2 = C 'x' (C 'y'(C 'z' E))
+
+lst3 :: MyList Bool 
+lst3 = C True (C False E)
+
+-- Polymorphic functions 
+
+filterList _ E = E 
+filterList p (C x xs)
+    | p x = (x (filterList p xs))
+    | otherwise = filterList p xs 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

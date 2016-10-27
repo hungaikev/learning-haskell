@@ -63,6 +63,29 @@ filterList p (C x xs)
 
 
 
+mapList :: (a -> b) -> MyList a -> MyList b 
+mapList _ E = E 
+mapList f (C x xs) = C (f x) (mapList f xs)
+
+doStuff :: [Int] -> Int 
+doStuff [] = 0 
+doStuff [_] = 0 
+doStuff xs = head xs + (head(tail xs))
+
+
+doStuff2 :: [Int] -> Int 
+doStuff2 [] = 0 
+doStuff2 [_] = 0 
+doStuff2 (x1:x2:_) = x1 + x2 
+
+
+
+safeHead :: [a] -> Maybe a 
+safeHead [] = Nothing 
+safeHead (x:_) = Just x 
+
+
+
 
 
 
